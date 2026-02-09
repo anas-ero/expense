@@ -10,11 +10,12 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
@@ -26,7 +27,7 @@
                     </div>
                 </header>
             @endisset
-
+<script src="./node_modules/preline/dist/preline.js"></script>
             <!-- Page Content -->
             <main>
                 {{ $slot }}

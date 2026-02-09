@@ -30,12 +30,16 @@ class ExpenseController extends Controller
      */
     public function store(Request $request)
     {
-          auth()->user()->expenses()->create([
-            "amount" => $request->amount,
-            "category" => $request->category,
-            "spent_at" => $request->spent_at,
-            "description" => $request->description,
+        $validate = $request->validate([
+            'amount' => ['required', 'numeric', 'gt:0'],
+            'category' => ['required' , 'string', 'max:255'],
+            'spent_at' => ['required' , 'date'],
+            'description' => ['nullable' , 'string'],
         ]);
+        
+          auth()->user()->expenses()->create(
+            $validate
+        );
 
         return redirect()->route('dashboard');
         
